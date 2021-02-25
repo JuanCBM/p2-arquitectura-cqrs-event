@@ -76,6 +76,12 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 		ShoppingCart shoppingCart = mapper.map(fullShoppingCartDTO, ShoppingCart.class);
 		shoppingCart.removeItem(fullProductDTO.getId());
 
+		// En lugar de guardar, debe crear un evento ShoppingCartProductAdded
+		// También debe publicarlo en un eventPublisher que se encontrará en la capa de servicios
+		// Como el publisher es dependiente de la tecnología (ApplicationEventPublisher de spring)
+		// Deberemos inyectarlo como hacemos con el servicio externo de validación en un servicio a parte
+		// EL procesador actualizará la vista (materialized view) de carritos completados con sus id-precio total
+
 		ShoppingCartItem shoppingCartItem = new ShoppingCartItem(
 		        mapper.map(fullProductDTO, Product.class),
 		        quantity);
