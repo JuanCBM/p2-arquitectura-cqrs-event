@@ -1,11 +1,11 @@
 package es.urjc.code.ejem1.service;
 
 import es.urjc.code.ejem1.domain.ShoppingCartItem;
-import es.urjc.code.ejem1.domain.service.ValidationService;
+import es.urjc.code.ejem1.domain.service.query.ValidationQueryService;
 import java.util.List;
 import java.util.Random;
 
-public class ValidationServiceImpl implements ValidationService {
+public class ValidationQueryServiceImpl implements ValidationQueryService {
 
   @Override
   public boolean validate(List<ShoppingCartItem> items) {
@@ -13,6 +13,5 @@ public class ValidationServiceImpl implements ValidationService {
 
     return rnd.nextBoolean();
   }
-
-
+  
 }

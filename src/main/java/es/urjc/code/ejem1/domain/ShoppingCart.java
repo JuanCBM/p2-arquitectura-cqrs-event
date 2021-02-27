@@ -1,7 +1,7 @@
 package es.urjc.code.ejem1.domain;
 
 import es.urjc.code.ejem1.domain.exception.ShoppingCartDontStockException;
-import es.urjc.code.ejem1.domain.service.ValidationService;
+import es.urjc.code.ejem1.domain.service.query.ValidationQueryService;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +11,7 @@ public class ShoppingCart {
   private ShoppingCartStatus status;
   private List<ShoppingCartItem> items;
 
-  private ValidationService validationService;
+  private ValidationQueryService validationQueryService;
 
   public ShoppingCart() {
     super();
@@ -44,12 +44,12 @@ public class ShoppingCart {
     this.items = items;
   }
 
-  public ValidationService getValidationService() {
-    return validationService;
+  public ValidationQueryService getValidationService() {
+    return validationQueryService;
   }
 
-  public void setValidationService(ValidationService validationService) {
-    this.validationService = validationService;
+  public void setValidationService(ValidationQueryService validationQueryService) {
+    this.validationQueryService = validationQueryService;
   }
 
   public void addItem(ShoppingCartItem shoppingCartItem) {
@@ -75,7 +75,7 @@ public class ShoppingCart {
   public void validate() {
     if (this.status != ShoppingCartStatus.COMPLETED) {
 
-      if (!validationService.validate(this.items)) {
+      if (!validationQueryService.validate(this.items)) {
         throw new ShoppingCartDontStockException("Not enough stock");
       }
 

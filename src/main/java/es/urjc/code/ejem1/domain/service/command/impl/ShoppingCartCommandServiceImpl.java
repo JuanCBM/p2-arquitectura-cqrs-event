@@ -9,8 +9,8 @@ import es.urjc.code.ejem1.domain.dto.FullShoppingCartDTO;
 import es.urjc.code.ejem1.domain.dto.ShoppingCartDTO;
 import es.urjc.code.ejem1.domain.repository.ProductRepository;
 import es.urjc.code.ejem1.domain.repository.ShoppingCartRepository;
-import es.urjc.code.ejem1.domain.service.ValidationService;
 import es.urjc.code.ejem1.domain.service.command.ShoppingCartCommandService;
+import es.urjc.code.ejem1.domain.service.query.ValidationQueryService;
 import es.urjc.code.ejem1.service.source.ShoppingCartProcess;
 import org.modelmapper.ModelMapper;
 
@@ -18,17 +18,17 @@ public class ShoppingCartCommandServiceImpl implements ShoppingCartCommandServic
 
   private final ShoppingCartRepository shoppingCartRepository;
   private final ProductRepository productRepository;
-  private final ValidationService validationService;
+  private final ValidationQueryService validationQueryService;
   private final ShoppingCartProcess shoppingCartProcess;
   private final ModelMapper mapper = new ModelMapper();
 
   public ShoppingCartCommandServiceImpl(ShoppingCartRepository shoppingCartRepository,
       ProductRepository productRepository,
-      ValidationService validationService,
+      ValidationQueryService validationQueryService,
       ShoppingCartProcess shoppingCartProcess) {
     this.shoppingCartRepository = shoppingCartRepository;
     this.productRepository = productRepository;
-    this.validationService = validationService;
+    this.validationQueryService = validationQueryService;
     this.shoppingCartProcess = shoppingCartProcess;
   }
 
@@ -55,7 +55,7 @@ public class ShoppingCartCommandServiceImpl implements ShoppingCartCommandServic
 
     if (updateShoppingCart.getStatus() != null &&
         updateShoppingCart.getStatus() == ShoppingCartStatus.COMPLETED) {
-      shoppingCart.setValidationService(validationService);
+      shoppingCart.setValidationService(validationQueryService);
       shoppingCart.validate();
     }
 

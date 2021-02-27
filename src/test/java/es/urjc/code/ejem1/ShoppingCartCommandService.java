@@ -13,7 +13,7 @@ import es.urjc.code.ejem1.domain.repository.ProductRepository;
 import es.urjc.code.ejem1.domain.repository.ShoppingCartRepository;
 import es.urjc.code.ejem1.domain.service.command.impl.ProductCommandServiceImpl;
 import es.urjc.code.ejem1.domain.service.command.impl.ShoppingCartCommandServiceImpl;
-import es.urjc.code.ejem1.service.ValidationServiceImpl;
+import es.urjc.code.ejem1.service.ValidationQueryServiceImpl;
 import es.urjc.code.ejem1.service.source.ShoppingCartProcess;
 import java.util.Random;
 import org.junit.jupiter.api.BeforeEach;
@@ -47,7 +47,7 @@ public class ShoppingCartCommandService {
     shoppingCartService = new ShoppingCartCommandServiceImpl(
         shoppingCartRepository,
         productRepository,
-        new ValidationServiceImpl(),
+        new ValidationQueryServiceImpl(),
         shoppingCartProcess);
   }
 

@@ -13,7 +13,7 @@ import es.urjc.code.ejem1.domain.service.query.impl.ShoppingCartQueryServiceImpl
 import es.urjc.code.ejem1.infrastructure.repository.impl.SpringDataJPAProductRepositoryAdapter;
 import es.urjc.code.ejem1.infrastructure.repository.impl.SpringDataJPAShoppingCartExpenditureRepositoryAdapter;
 import es.urjc.code.ejem1.infrastructure.repository.impl.SpringDataJPAShoppingCartRepositoryAdapter;
-import es.urjc.code.ejem1.service.ValidationServiceImpl;
+import es.urjc.code.ejem1.service.ValidationQueryServiceImpl;
 import es.urjc.code.ejem1.service.source.ShoppingCartProcess;
 import org.springframework.context.annotation.Bean;
 
@@ -28,7 +28,7 @@ public class Configuration {
     return new ShoppingCartCommandServiceImpl(
         shoppingCartRepositoryAdapter,
         productRepositoryAdapter,
-        new ValidationServiceImpl(),
+        new ValidationQueryServiceImpl(),
         shoppingCartProcess);
   }
 
