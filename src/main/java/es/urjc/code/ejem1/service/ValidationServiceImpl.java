@@ -7,12 +7,12 @@ import java.util.Random;
 
 public class ValidationServiceImpl implements ValidationService {
 
-	@Override
-	public boolean validate(List<ShoppingCartItem> items) {
-		Random rnd = new Random();
+  @Override
+  public boolean validate(List<ShoppingCartItem> items) {
+    Random rnd = new Random();
 
-		return rnd.nextBoolean();
-	}
+    return rnd.nextBoolean();
+  }
 
 
 }

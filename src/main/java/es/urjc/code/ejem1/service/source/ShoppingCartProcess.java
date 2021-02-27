@@ -9,10 +9,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ShoppingCartProcess {
+
   private final ApplicationEventPublisher applicationEventPublisher;
   private final ShoppingCartRepository shoppingCartRepository;
 
-  ShoppingCartProcess(ApplicationEventPublisher applicationEventPublisher, ShoppingCartRepository shoppingCartRepository) {
+  ShoppingCartProcess(ApplicationEventPublisher applicationEventPublisher,
+      ShoppingCartRepository shoppingCartRepository) {
     this.applicationEventPublisher = applicationEventPublisher;
     this.shoppingCartRepository = shoppingCartRepository;
   }
@@ -20,7 +22,7 @@ public class ShoppingCartProcess {
   @Transactional
   public void close(Long id, Double prize) {
     FullShoppingCartDTO fullShoppingCartDTO = shoppingCartRepository.findById(id);
-    if(fullShoppingCartDTO==null){
+    if (fullShoppingCartDTO == null) {
       throw new IllegalStateException("Cannot find card with id " + id);
     }
     ShoppingCartClosed event = new ShoppingCartClosed(id, prize);

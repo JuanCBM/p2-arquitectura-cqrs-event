@@ -3,45 +3,45 @@ package es.urjc.code.ejem1.domain.dto;
 import es.urjc.code.ejem1.domain.Product;
 
 public class FullShoppingCartItemDTO {
-	
-	private Long id;
-	private Product product;
-	private int quantity;
-	private double totalPrice;
 
-	public FullShoppingCartItemDTO() {
-		super();
-	}
+  private Long id;
+  private Product product;
+  private int quantity;
+  private double totalPrice;
 
-	public Long getId() {
-		return id;
-	}
+  public FullShoppingCartItemDTO() {
+    super();
+  }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+  public Long getId() {
+    return id;
+  }
 
-	public Product getProduct() {
-		return product;
-	}
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-	public void setProduct(Product product) {
-		this.product = product;
-	}
+  public Product getProduct() {
+    return product;
+  }
 
-	public int getQuantity() {
-		return quantity;
-	}
+  public void setProduct(Product product) {
+    this.product = product;
+  }
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
+  public int getQuantity() {
+    return quantity;
+  }
 
-	public double getTotalPrice() {
-		return totalPrice;
-	}
+  public void setQuantity(int quantity) {
+    this.quantity = quantity;
+  }
 
-	public void setTotalPrice(double totalPrice) {
-		this.totalPrice = totalPrice;
-	}
+  public double getTotalPrice() {
+    return totalPrice;
+  }
+
+  public void setTotalPrice(double totalPrice) {
+    this.totalPrice = totalPrice;
+  }
 }

@@ -21,28 +21,29 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/products")
 public class ProductCommandController {
 
-	private ProductCommandService productCommandService;
-	private ModelMapper mapper = new ModelMapper();
+  private final ProductCommandService productCommandService;
+  private final ModelMapper mapper = new ModelMapper();
 
-	public ProductCommandController(ProductCommandService productCommandService) {
-		this.productCommandService = productCommandService;
-	}
+  public ProductCommandController(ProductCommandService productCommandService) {
+    this.productCommandService = productCommandService;
+  }
 
-	@PostMapping
-	public ResponseEntity<ProductResponseDTO> createProduct(@RequestBody ProductRequestDTO productRequestDTO) {
-		ProductDTO productDTO = mapper.map(productRequestDTO, ProductDTO.class);
-		FullProductDTO fullProductDTO = productCommandService.createProduct(productDTO);
+  @PostMapping
+  public ResponseEntity<ProductResponseDTO> createProduct(
+      @RequestBody ProductRequestDTO productRequestDTO) {
+    ProductDTO productDTO = mapper.map(productRequestDTO, ProductDTO.class);
+    FullProductDTO fullProductDTO = productCommandService.createProduct(productDTO);
 
-		URI location = fromCurrentRequest().path("/{id}")
-		        .buildAndExpand(fullProductDTO.getId()).toUri();
+    URI location = fromCurrentRequest().path("/{id}")
+        .buildAndExpand(fullProductDTO.getId()).toUri();
 
-		return ResponseEntity.created(location).body(
-		        mapper.map(fullProductDTO, ProductResponseDTO.class));
-	}
+    return ResponseEntity.created(location).body(
+        mapper.map(fullProductDTO, ProductResponseDTO.class));
+  }
 
-	@DeleteMapping("/{id}")
-	public ProductResponseDTO deleteProduct(@PathVariable Long id) {
-		return mapper.map(productCommandService.deleteProduct(id), ProductResponseDTO.class);
-	}
+  @DeleteMapping("/{id}")
+  public ProductResponseDTO deleteProduct(@PathVariable Long id) {
+    return mapper.map(productCommandService.deleteProduct(id), ProductResponseDTO.class);
+  }
 
 }

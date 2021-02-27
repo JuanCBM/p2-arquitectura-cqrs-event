@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ShoppingCartExpenditureDTO {
 
-	private Long cartId;
-	private Double expenditure;
+  private Long cartId;
+  private Double expenditure;
 
 }

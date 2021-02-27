@@ -13,8 +13,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class SpringDataJPAShoppingCartExpenditureRepositoryAdapter implements
     ShoppingCartExpenditureRepository {
-  private ModelMapper mapper = new ModelMapper();
-  private SpringDataJPAShoppingCartExpenditureRepository springDataJPAShoppingCartExpenditureRepository;
+
+  private final ModelMapper mapper = new ModelMapper();
+  private final SpringDataJPAShoppingCartExpenditureRepository springDataJPAShoppingCartExpenditureRepository;
 
   public SpringDataJPAShoppingCartExpenditureRepositoryAdapter(
       SpringDataJPAShoppingCartExpenditureRepository repository) {
@@ -22,12 +23,14 @@ public class SpringDataJPAShoppingCartExpenditureRepositoryAdapter implements
   }
 
   public void save(ShoppingCartClosed shoppingCartClosed) {
-    ShoppingCartExpenditureEntity shoppingCartExpenditureEntity = mapper.map(shoppingCartClosed, ShoppingCartExpenditureEntity.class);
+    ShoppingCartExpenditureEntity shoppingCartExpenditureEntity = mapper
+        .map(shoppingCartClosed, ShoppingCartExpenditureEntity.class);
     springDataJPAShoppingCartExpenditureRepository.save(shoppingCartExpenditureEntity);
   }
 
   @Override
   public Collection<ShoppingCartExpenditureDTO> findAll() {
-    return Arrays.asList(mapper.map(springDataJPAShoppingCartExpenditureRepository.findAll(), ShoppingCartExpenditureDTO[].class));
+    return Arrays.asList(mapper.map(springDataJPAShoppingCartExpenditureRepository.findAll(),
+        ShoppingCartExpenditureDTO[].class));
   }
 }

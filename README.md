@@ -10,23 +10,27 @@
 </p>
 
 ## Authors
+
 👤 **JuanCBM**: Juan Carlos Blázquez Muñoz
+
 * Github: [@JuanCBM](https://github.com/JuanCBM)
 
 👤 **mahuerta**: Miguel Ángel Huerta Rodríguez
+
 * Github: [@mahuerta](https://github.com/mahuerta)
 
-
-
-
 # Sobre la aplicación:
+
 ### Parte 1:
-Hemos utilizado eventos dentro de la aplicación Spring.
-Además de guardar el estado del carrito, se debe crear un evento ShoppingCartClosed (Los eventos se ponen en pasado).
-Este evento debe publicarlo en un publiser ShoppingCartProcess y debe leerlo un listener ReadModelUpdater. 
-Ambos se encontrarán en la capa de servicios puesto que son dependientes de la tecnología. En este caso del framework de Spring.
 
-Como el publisher es dependiente de la tecnología (ApplicationEventPublisher de spring), 
-deberemos inyectarlo como hacemos con el servicio externo de validación en un servicio a parte
+Hemos utilizado eventos dentro de la aplicación Spring. Además de guardar el estado del carrito, se
+debe crear un evento ShoppingCartClosed (Los eventos se ponen en pasado). Este evento debe
+publicarlo en un publiser ShoppingCartProcess y debe leerlo un listener ReadModelUpdater. Ambos se
+encontrarán en la capa de servicios puesto que son dependientes de la tecnología. En este caso del
+framework de Spring.
 
-EL procesador actualizará la vista (materialized view) de carritos completados con sus id-precio total
+Como el publisher es dependiente de la tecnología (ApplicationEventPublisher de spring), deberemos
+inyectarlo como hacemos con el servicio externo de validación en un servicio a parte
+
+EL procesador actualizará la vista (materialized view) de carritos completados con sus id-precio
+total

@@ -4,11 +4,12 @@ import es.urjc.code.ejem1.domain.dto.FullProductDTO;
 import java.util.Collection;
 
 public interface ProductRepository {
-	Collection<FullProductDTO> finAll();
 
-	FullProductDTO findById(Long id);
+  Collection<FullProductDTO> finAll();
 
-	FullProductDTO save(FullProductDTO product);
+  FullProductDTO findById(Long id);
 
-	void deleteById(Long id);
+  FullProductDTO save(FullProductDTO product);
+
+  void deleteById(Long id);
 }

@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/products")
 public class ProductQueryController {
 
-  private ProductQueryService productQueryService;
-  private ModelMapper mapper = new ModelMapper();
+  private final ProductQueryService productQueryService;
+  private final ModelMapper mapper = new ModelMapper();
 
   public ProductQueryController(ProductQueryService productQueryService) {
     this.productQueryService = productQueryService;
