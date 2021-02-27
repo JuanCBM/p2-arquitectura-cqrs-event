@@ -1,14 +1,17 @@
 package es.urjc.code.ejem1;
 
-import org.springframework.context.annotation.Bean;
-
-import es.urjc.code.ejem1.domain.ProductService;
-import es.urjc.code.ejem1.domain.ProductServiceImpl;
-import es.urjc.code.ejem1.domain.ShoppingCartService;
-import es.urjc.code.ejem1.domain.ShoppingCartServiceImpl;
-import es.urjc.code.ejem1.infrastructure.SpringDataJPAProductRepositoryAdapter;
-import es.urjc.code.ejem1.infrastructure.SpringDataJPAShoppingCartRepositoryAdapter;
+import es.urjc.code.ejem1.domain.service.ProductService;
+import es.urjc.code.ejem1.domain.service.ShoppingCartExpenditureService;
+import es.urjc.code.ejem1.domain.service.ShoppingCartService;
+import es.urjc.code.ejem1.domain.service.impl.ProductServiceImpl;
+import es.urjc.code.ejem1.domain.service.impl.ShoppingCartExpenditureServiceImpl;
+import es.urjc.code.ejem1.domain.service.impl.ShoppingCartServiceImpl;
+import es.urjc.code.ejem1.infrastructure.repository.impl.SpringDataJPAProductRepositoryAdapter;
+import es.urjc.code.ejem1.infrastructure.repository.impl.SpringDataJPAShoppingCartExpenditureRepositoryAdapter;
+import es.urjc.code.ejem1.infrastructure.repository.impl.SpringDataJPAShoppingCartRepositoryAdapter;
 import es.urjc.code.ejem1.service.ValidationServiceImpl;
+import es.urjc.code.ejem1.service.source.ShoppingCartProcess;
+import org.springframework.context.annotation.Bean;
 
 @org.springframework.context.annotation.Configuration
 public class Configuration {
@@ -16,16 +19,25 @@ public class Configuration {
 	@Bean
 	public ShoppingCartService shoppingCartService(
 	        SpringDataJPAShoppingCartRepositoryAdapter shoppingCartRepositoryAdapter,
-	        SpringDataJPAProductRepositoryAdapter productRepositoryAdapter) {
+	        SpringDataJPAProductRepositoryAdapter productRepositoryAdapter,
+					ShoppingCartProcess shoppingCartProcess) {
 		return new ShoppingCartServiceImpl(
 		        shoppingCartRepositoryAdapter,
 		        productRepositoryAdapter,
-		        new ValidationServiceImpl());
+		        new ValidationServiceImpl(),
+						shoppingCartProcess);
 	}
 
 	@Bean
 	public ProductService productService(SpringDataJPAProductRepositoryAdapter repositoryAdapter) {
 		return new ProductServiceImpl(repositoryAdapter);
+	}
+
+	@Bean
+	public ShoppingCartExpenditureService shoppingCartExpenditureService(
+			SpringDataJPAShoppingCartExpenditureRepositoryAdapter springDataJPAShoppingCartExpenditureRepositoryAdapter) {
+		return new ShoppingCartExpenditureServiceImpl(
+				springDataJPAShoppingCartExpenditureRepositoryAdapter);
 	}
 
 }

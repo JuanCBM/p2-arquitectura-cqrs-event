@@ -3,18 +3,17 @@ package es.urjc.code.ejem1;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+import es.urjc.code.ejem1.domain.Product;
+import es.urjc.code.ejem1.domain.dto.FullProductDTO;
+import es.urjc.code.ejem1.domain.dto.ProductDTO;
+import es.urjc.code.ejem1.domain.repository.ProductRepository;
+import es.urjc.code.ejem1.domain.service.impl.ProductServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.modelmapper.ModelMapper;
-
-import es.urjc.code.ejem1.domain.FullProductDTO;
-import es.urjc.code.ejem1.domain.Product;
-import es.urjc.code.ejem1.domain.ProductDTO;
-import es.urjc.code.ejem1.domain.ProductRepository;
-import es.urjc.code.ejem1.domain.ProductServiceImpl;
 
 @TestMethodOrder(OrderAnnotation.class)
 public class ProductService {

@@ -1,5 +1,7 @@
 package es.urjc.code.ejem1.domain;
 
+import es.urjc.code.ejem1.domain.exception.ShoppingCartDontStockException;
+import es.urjc.code.ejem1.domain.service.ValidationService;
 import java.util.ArrayList;
 import java.util.List;
 

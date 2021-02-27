@@ -1,15 +1,13 @@
 package es.urjc.code.ejem1.infrastructure;
 
+import es.urjc.code.ejem1.domain.ShoppingCartStatus;
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
-import es.urjc.code.ejem1.domain.ShoppingCartStatus;
 
 @Entity
 public class ShoppingCartEntity {

@@ -4,8 +4,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+import es.urjc.code.ejem1.domain.Product;
+import es.urjc.code.ejem1.domain.dto.FullProductDTO;
+import es.urjc.code.ejem1.domain.dto.FullShoppingCartDTO;
+import es.urjc.code.ejem1.domain.dto.FullShoppingCartItemDTO;
+import es.urjc.code.ejem1.domain.dto.ProductDTO;
+import es.urjc.code.ejem1.domain.repository.ProductRepository;
+import es.urjc.code.ejem1.domain.repository.ShoppingCartRepository;
+import es.urjc.code.ejem1.domain.service.impl.ProductServiceImpl;
+import es.urjc.code.ejem1.domain.service.impl.ShoppingCartServiceImpl;
+import es.urjc.code.ejem1.service.ValidationServiceImpl;
+import es.urjc.code.ejem1.service.source.ShoppingCartProcess;
 import java.util.Random;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
@@ -13,22 +23,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.modelmapper.ModelMapper;
 
-import es.urjc.code.ejem1.domain.FullProductDTO;
-import es.urjc.code.ejem1.domain.FullShoppingCartDTO;
-import es.urjc.code.ejem1.domain.FullShoppingCartItemDTO;
-import es.urjc.code.ejem1.domain.Product;
-import es.urjc.code.ejem1.domain.ProductDTO;
-import es.urjc.code.ejem1.domain.ProductRepository;
-import es.urjc.code.ejem1.domain.ProductServiceImpl;
-import es.urjc.code.ejem1.domain.ShoppingCartRepository;
-import es.urjc.code.ejem1.domain.ShoppingCartServiceImpl;
-import es.urjc.code.ejem1.service.ValidationServiceImpl;
-
 @TestMethodOrder(OrderAnnotation.class)
 public class ShoppingCartService {
 	
 	private ProductRepository productRepository;
 	private ProductServiceImpl productService;
+	private ShoppingCartProcess shoppingCartProcess;
 
 	private ShoppingCartRepository shoppingCartRepository;
 	private ShoppingCartServiceImpl shoppingCartService;
@@ -41,12 +41,14 @@ public class ShoppingCartService {
 	void setUp() {
 		productRepository = mock(ProductRepository.class);
 		shoppingCartRepository = mock(ShoppingCartRepository.class);
-		
+		shoppingCartProcess = mock(ShoppingCartProcess.class);
+
 		productService = new ProductServiceImpl(productRepository);
 		shoppingCartService = new ShoppingCartServiceImpl(
 				shoppingCartRepository,
 		        productRepository,
-		        new ValidationServiceImpl());
+		        new ValidationServiceImpl(),
+				shoppingCartProcess);
 	}
 	
 	@Test
