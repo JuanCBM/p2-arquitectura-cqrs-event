@@ -2,6 +2,7 @@ package es.urjc.code.ejem1.service.source;
 
 import es.urjc.code.ejem1.domain.dto.FullShoppingCartDTO;
 import es.urjc.code.ejem1.domain.repository.ShoppingCartRepository;
+import es.urjc.code.ejem1.service.event.ShoppingCartClosed;
 import javax.transaction.Transactional;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;

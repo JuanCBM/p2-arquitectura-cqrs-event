@@ -7,7 +7,7 @@ import es.urjc.code.ejem1.domain.Product;
 import es.urjc.code.ejem1.domain.dto.FullProductDTO;
 import es.urjc.code.ejem1.domain.dto.ProductDTO;
 import es.urjc.code.ejem1.domain.repository.ProductRepository;
-import es.urjc.code.ejem1.domain.service.impl.ProductServiceImpl;
+import es.urjc.code.ejem1.domain.service.command.impl.ProductCommandServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
@@ -16,10 +16,10 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.modelmapper.ModelMapper;
 
 @TestMethodOrder(OrderAnnotation.class)
-public class ProductService {
+public class ProductCommandService {
 
 	private ProductRepository productRepository;
-	private ProductServiceImpl productService;
+	private ProductCommandServiceImpl productService;
 
 	private ModelMapper mapper = new ModelMapper();
 
@@ -28,7 +28,7 @@ public class ProductService {
 	@BeforeEach
 	void setUp() {
 		productRepository = mock(ProductRepository.class);
-		productService = new ProductServiceImpl(productRepository);
+		productService = new ProductCommandServiceImpl(productRepository);
 	}
 
 	@Test

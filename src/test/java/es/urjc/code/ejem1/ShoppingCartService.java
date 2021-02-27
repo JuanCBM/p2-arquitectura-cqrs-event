@@ -11,7 +11,7 @@ import es.urjc.code.ejem1.domain.dto.FullShoppingCartItemDTO;
 import es.urjc.code.ejem1.domain.dto.ProductDTO;
 import es.urjc.code.ejem1.domain.repository.ProductRepository;
 import es.urjc.code.ejem1.domain.repository.ShoppingCartRepository;
-import es.urjc.code.ejem1.domain.service.impl.ProductServiceImpl;
+import es.urjc.code.ejem1.domain.service.command.impl.ProductCommandServiceImpl;
 import es.urjc.code.ejem1.domain.service.impl.ShoppingCartServiceImpl;
 import es.urjc.code.ejem1.service.ValidationServiceImpl;
 import es.urjc.code.ejem1.service.source.ShoppingCartProcess;
@@ -27,7 +27,7 @@ import org.modelmapper.ModelMapper;
 public class ShoppingCartService {
 	
 	private ProductRepository productRepository;
-	private ProductServiceImpl productService;
+	private ProductCommandServiceImpl productService;
 	private ShoppingCartProcess shoppingCartProcess;
 
 	private ShoppingCartRepository shoppingCartRepository;
@@ -43,7 +43,7 @@ public class ShoppingCartService {
 		shoppingCartRepository = mock(ShoppingCartRepository.class);
 		shoppingCartProcess = mock(ShoppingCartProcess.class);
 
-		productService = new ProductServiceImpl(productRepository);
+		productService = new ProductCommandServiceImpl(productRepository);
 		shoppingCartService = new ShoppingCartServiceImpl(
 				shoppingCartRepository,
 		        productRepository,

@@ -1,12 +1,10 @@
-package es.urjc.code.ejem1.domain.service;
+package es.urjc.code.ejem1.domain.service.query;
 
 import es.urjc.code.ejem1.domain.dto.FullProductDTO;
 import es.urjc.code.ejem1.domain.dto.ProductDTO;
 import java.util.Collection;
 
-public interface ProductService {
+public interface ProductQueryService {
 	public Collection<FullProductDTO> getProducts();
 	public FullProductDTO getProduct(Long id);
-	public FullProductDTO createProduct(ProductDTO productDTO);
-	public FullProductDTO deleteProduct(Long id);
 }

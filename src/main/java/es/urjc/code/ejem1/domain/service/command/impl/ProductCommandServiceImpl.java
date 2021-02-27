@@ -1,29 +1,18 @@
-package es.urjc.code.ejem1.domain.service.impl;
+package es.urjc.code.ejem1.domain.service.command.impl;
 
 import es.urjc.code.ejem1.domain.dto.FullProductDTO;
 import es.urjc.code.ejem1.domain.dto.ProductDTO;
 import es.urjc.code.ejem1.domain.repository.ProductRepository;
-import es.urjc.code.ejem1.domain.service.ProductService;
-import java.util.Collection;
+import es.urjc.code.ejem1.domain.service.command.ProductCommandService;
 import org.modelmapper.ModelMapper;
 
-public class ProductServiceImpl implements ProductService {
+public class ProductCommandServiceImpl implements ProductCommandService {
 
 	private ProductRepository repository;
 	ModelMapper mapper = new ModelMapper();
 
-	public ProductServiceImpl(ProductRepository repository) {
+	public ProductCommandServiceImpl(ProductRepository repository) {
 		this.repository = repository;
-	}
-
-	@Override
-	public Collection<FullProductDTO> getProducts() {
-		return repository.finAll();
-	}
-
-	@Override
-	public FullProductDTO getProduct(Long id) {
-		return repository.findById(id);
 	}
 
 	@Override
