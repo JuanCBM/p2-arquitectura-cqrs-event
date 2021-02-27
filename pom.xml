@@ -13,7 +13,7 @@
   <artifactId>pr-1</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>ejem-1</name>
-  <description>Hexagonal architecture SpringBoot example</description>
+  <description>CQRS and Event Sourcing SpringBoot application</description>
   <properties>
     <java.version>11</java.version>
   </properties>
