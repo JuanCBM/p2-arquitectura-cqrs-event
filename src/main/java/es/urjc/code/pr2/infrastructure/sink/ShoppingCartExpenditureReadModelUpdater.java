@@ -1,6 +1,6 @@
 package es.urjc.code.pr2.infrastructure.sink;
 
-import es.urjc.code.pr2.infrastructure.application.event.ShoppingCartClosed;
+import es.urjc.code.pr2.domain.event.ShoppingCartClosed;
 import es.urjc.code.pr2.infrastructure.repository.impl.SpringDataJPAShoppingCartExpenditureRepositoryAdapter;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ public class ShoppingCartExpenditureReadModelUpdater {
   }
 
   @EventListener
-  public void addWithdrawalOnCardWithdrawn(ShoppingCartClosed event) {
+  public void closeShoppingCart(ShoppingCartClosed event) {
     springDataJPAShoppingCartExpenditureRepositoryAdapter.save(event);
   }
 }

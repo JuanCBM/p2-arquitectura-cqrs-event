@@ -4,6 +4,7 @@ import es.urjc.code.pr2.domain.dto.FullProductDTO;
 import es.urjc.code.pr2.domain.repository.ProductRepository;
 import es.urjc.code.pr2.domain.service.query.ProductQueryService;
 import java.util.Collection;
+import java.util.UUID;
 
 public class ProductQueryServiceImpl implements ProductQueryService {
 
@@ -19,7 +20,7 @@ public class ProductQueryServiceImpl implements ProductQueryService {
   }
 
   @Override
-  public FullProductDTO getProduct(Long id) {
+  public FullProductDTO getProduct(UUID id) {
     return repository.findById(id);
   }
 

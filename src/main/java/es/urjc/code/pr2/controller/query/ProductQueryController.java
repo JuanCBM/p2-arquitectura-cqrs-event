@@ -4,6 +4,7 @@ import es.urjc.code.pr2.controller.dto.ProductResponseDTO;
 import es.urjc.code.pr2.domain.service.query.ProductQueryService;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.UUID;
 import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +28,7 @@ public class ProductQueryController {
   }
 
   @GetMapping("/{id}")
-  public ProductResponseDTO getProduct(@PathVariable Long id) {
+  public ProductResponseDTO getProduct(@PathVariable UUID id) {
     return mapper.map(productQueryService.getProduct(id), ProductResponseDTO.class);
   }
 

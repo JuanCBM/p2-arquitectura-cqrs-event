@@ -4,6 +4,7 @@ import es.urjc.code.pr2.domain.exception.ShoppingCartDontStockException;
 import es.urjc.code.pr2.domain.service.query.ValidationQueryService;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class ShoppingCart {
 
@@ -56,7 +57,7 @@ public class ShoppingCart {
     this.items.add(shoppingCartItem);
   }
 
-  public void removeItem(Long idProduct) {
+  public void removeItem(UUID idProduct) {
     this.items.removeIf(item -> item.getProduct().getId().equals(idProduct));
   }
 

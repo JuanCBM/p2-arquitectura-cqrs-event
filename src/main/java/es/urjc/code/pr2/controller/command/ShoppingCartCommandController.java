@@ -8,6 +8,7 @@ import es.urjc.code.pr2.domain.dto.FullShoppingCartDTO;
 import es.urjc.code.pr2.domain.dto.ShoppingCartDTO;
 import es.urjc.code.pr2.domain.service.command.ShoppingCartCommandService;
 import java.net.URI;
+import java.util.UUID;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -33,7 +34,7 @@ public class ShoppingCartCommandController {
   @PostMapping("/{idShoppingCart}/product/{idProduct}/quantity/{quantity}")
   public ShoppingCartResponseDTO addProductToShoppingCart(
       @PathVariable Long idShoppingCart,
-      @PathVariable Long idProduct,
+      @PathVariable UUID idProduct,
       @PathVariable int quantity) {
 
     return mapper.map(shoppingService.addProduct(idShoppingCart, idProduct, quantity),
@@ -43,7 +44,7 @@ public class ShoppingCartCommandController {
   @DeleteMapping("/{idShoppingCart}/product/{idProduct}")
   public ShoppingCartResponseDTO deleteProductInShoppingCart(
       @PathVariable Long idShoppingCart,
-      @PathVariable Long idProduct) {
+      @PathVariable UUID idProduct) {
     return mapper.map(shoppingService.deleteProduct(idShoppingCart, idProduct),
         ShoppingCartResponseDTO.class);
   }

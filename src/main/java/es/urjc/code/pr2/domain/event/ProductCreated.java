@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductCreated extends Event {
+public class ProductCreated {
 
   private UUID id;
   private String name;

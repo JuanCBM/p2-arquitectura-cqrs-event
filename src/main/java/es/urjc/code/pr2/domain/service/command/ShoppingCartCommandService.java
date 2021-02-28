@@ -3,6 +3,7 @@ package es.urjc.code.pr2.domain.service.command;
 import es.urjc.code.pr2.domain.dto.FullProductDTO;
 import es.urjc.code.pr2.domain.dto.FullShoppingCartDTO;
 import es.urjc.code.pr2.domain.dto.ShoppingCartDTO;
+import java.util.UUID;
 
 public interface ShoppingCartCommandService {
 
@@ -12,11 +13,11 @@ public interface ShoppingCartCommandService {
 
   FullShoppingCartDTO deleteShoppingCart(Long id);
 
-  FullShoppingCartDTO addProduct(Long idShoppingCart, Long idProduct, int nProducts);
+  FullShoppingCartDTO addProduct(Long idShoppingCart, UUID idProduct, int nProducts);
 
   FullShoppingCartDTO addProduct(FullProductDTO fullProductDTO,
       FullShoppingCartDTO fullShoppingCartDTO,
       int quantity);
 
-  FullShoppingCartDTO deleteProduct(Long idShoppingCart, Long idProduct);
+  FullShoppingCartDTO deleteProduct(Long idShoppingCart, UUID idProduct);
 }

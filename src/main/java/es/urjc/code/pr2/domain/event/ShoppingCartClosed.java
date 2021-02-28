@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class ShoppingCartClosed extends Event {
+public class ShoppingCartClosed {
 
   private Long cartId;
   private Double expenditure;

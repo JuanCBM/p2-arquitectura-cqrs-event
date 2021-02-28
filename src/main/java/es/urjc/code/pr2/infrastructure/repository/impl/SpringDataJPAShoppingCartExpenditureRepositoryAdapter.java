@@ -1,9 +1,9 @@
 package es.urjc.code.pr2.infrastructure.repository.impl;
 
 import es.urjc.code.pr2.domain.dto.ShoppingCartExpenditureDTO;
+import es.urjc.code.pr2.domain.event.ShoppingCartClosed;
 import es.urjc.code.pr2.domain.repository.ShoppingCartExpenditureRepository;
 import es.urjc.code.pr2.infrastructure.ShoppingCartExpenditureEntity;
-import es.urjc.code.pr2.infrastructure.application.event.ShoppingCartClosed;
 import es.urjc.code.pr2.infrastructure.repository.SpringDataJPAShoppingCartExpenditureRepository;
 import java.util.Arrays;
 import java.util.Collection;

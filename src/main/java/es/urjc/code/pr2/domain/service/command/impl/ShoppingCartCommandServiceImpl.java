@@ -7,12 +7,13 @@ import es.urjc.code.pr2.domain.ShoppingCartStatus;
 import es.urjc.code.pr2.domain.dto.FullProductDTO;
 import es.urjc.code.pr2.domain.dto.FullShoppingCartDTO;
 import es.urjc.code.pr2.domain.dto.ShoppingCartDTO;
+import es.urjc.code.pr2.domain.event.ShoppingCartClosed;
 import es.urjc.code.pr2.domain.repository.ProductRepository;
 import es.urjc.code.pr2.domain.repository.ShoppingCartRepository;
 import es.urjc.code.pr2.domain.service.command.ShoppingCartCommandService;
 import es.urjc.code.pr2.domain.service.query.ValidationQueryService;
-import es.urjc.code.pr2.infrastructure.application.event.ShoppingCartClosed;
 import es.urjc.code.pr2.infrastructure.application.source.ShoppingCartProcess;
+import java.util.UUID;
 import org.modelmapper.ModelMapper;
 
 public class ShoppingCartCommandServiceImpl implements ShoppingCartCommandService {
@@ -77,7 +78,7 @@ public class ShoppingCartCommandServiceImpl implements ShoppingCartCommandServic
   }
 
   @Override
-  public FullShoppingCartDTO addProduct(Long idShoppingCart, Long idProduct, int quantity) {
+  public FullShoppingCartDTO addProduct(Long idShoppingCart, UUID idProduct, int quantity) {
     FullProductDTO fullProductDTO = productRepository.findById(idProduct);
     FullShoppingCartDTO fullShoppingCartDTO = shoppingCartRepository.findById(idShoppingCart);
 
@@ -88,7 +89,7 @@ public class ShoppingCartCommandServiceImpl implements ShoppingCartCommandServic
       FullShoppingCartDTO fullShoppingCartDTO,
       int quantity) {
     ShoppingCart shoppingCart = mapper.map(fullShoppingCartDTO, ShoppingCart.class);
-    //shoppingCart.removeItem(fullProductDTO.getId());
+    shoppingCart.removeItem(fullProductDTO.getId());
 
     ShoppingCartItem shoppingCartItem = new ShoppingCartItem(
         mapper.map(fullProductDTO, Product.class),
@@ -101,7 +102,7 @@ public class ShoppingCartCommandServiceImpl implements ShoppingCartCommandServic
   }
 
   @Override
-  public FullShoppingCartDTO deleteProduct(Long idShoppingCart, Long idProduct) {
+  public FullShoppingCartDTO deleteProduct(Long idShoppingCart, UUID idProduct) {
     FullShoppingCartDTO fullShoppingCartDTO = shoppingCartRepository.findById(idShoppingCart);
 
     ShoppingCart shoppingCart = mapper.map(fullShoppingCartDTO, ShoppingCart.class);
