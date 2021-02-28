@@ -1,6 +1,6 @@
 {
   "info": {
-    "_postman_id": "97556f98-f07c-454f-aa58-d8bf0d47748a",
+    "_postman_id": "357f1346-5c79-462e-a0b2-6e091d1720b3",
     "name": "ejem-1",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
@@ -230,7 +230,7 @@
       "name": "ShoppingCartExpenditure",
       "item": [
         {
-          "name": "/api/shoppingcarts/:id",
+          "name": "/api/cartexpenditure",
           "request": {
             "method": "GET",
             "header": [],

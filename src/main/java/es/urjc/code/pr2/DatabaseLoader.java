@@ -12,12 +12,12 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class DatabaseLoader implements CommandLineRunner {
 
+  ModelMapper mapper = new ModelMapper();
   @Autowired
   private ProductRepository productRepository;
-  ModelMapper mapper = new ModelMapper();
 
   @Override
-  public void run(String... args) throws Exception {
+  public void run(String... args) {
 
     Product product1 = new Product(
         "PLUMÍFERO MONTAÑA Y SENDERISMO FORCLAZ TREK100 AZUL CAPUCHA",
@@ -37,7 +37,7 @@ public class DatabaseLoader implements CommandLineRunner {
     product1.setId(UUID.randomUUID());
     product2.setId(UUID.randomUUID());
     product3.setId(UUID.randomUUID());
-    
+
     productRepository.save(mapper.map(product1, FullProductDTO.class));
     productRepository.save(mapper.map(product2, FullProductDTO.class));
     productRepository.save(mapper.map(product3, FullProductDTO.class));

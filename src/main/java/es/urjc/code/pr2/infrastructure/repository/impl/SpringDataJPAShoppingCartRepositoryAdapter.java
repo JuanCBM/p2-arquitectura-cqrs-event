@@ -5,6 +5,7 @@ import es.urjc.code.pr2.domain.repository.ShoppingCartRepository;
 import es.urjc.code.pr2.infrastructure.ShoppingCartEntity;
 import es.urjc.code.pr2.infrastructure.exception.ShoppingCartNotFoundException;
 import es.urjc.code.pr2.infrastructure.repository.SpringDataJPAShoppingCartRepository;
+import java.util.UUID;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +21,7 @@ public class SpringDataJPAShoppingCartRepositoryAdapter implements ShoppingCartR
   }
 
   @Override
-  public FullShoppingCartDTO findById(Long id) {
+  public FullShoppingCartDTO findById(UUID id) {
     return mapper.map(repository.findById(id).orElseThrow(ShoppingCartNotFoundException::new),
         FullShoppingCartDTO.class);
   }
@@ -34,7 +35,7 @@ public class SpringDataJPAShoppingCartRepositoryAdapter implements ShoppingCartR
   }
 
   @Override
-  public void deleteById(Long id) {
+  public void deleteById(UUID id) {
     repository.deleteById(id);
   }
 

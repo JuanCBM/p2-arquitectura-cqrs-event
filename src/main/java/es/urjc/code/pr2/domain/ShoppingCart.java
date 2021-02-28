@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public class ShoppingCart {
 
-  private Long id;
+  private UUID id;
   private ShoppingCartStatus status;
   private List<ShoppingCartItem> items;
 
@@ -21,11 +21,11 @@ public class ShoppingCart {
     this.items = new ArrayList<>();
   }
 
-  public Long getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 

@@ -9,15 +9,15 @@ public interface ShoppingCartCommandService {
 
   FullShoppingCartDTO createShoppingCart();
 
-  FullShoppingCartDTO updateShoppingCart(Long id, ShoppingCartDTO shoppingCartDTO);
+  FullShoppingCartDTO updateShoppingCart(UUID id, ShoppingCartDTO shoppingCartDTO);
 
-  FullShoppingCartDTO deleteShoppingCart(Long id);
+  FullShoppingCartDTO deleteShoppingCart(UUID id);
 
-  FullShoppingCartDTO addProduct(Long idShoppingCart, UUID idProduct, int nProducts);
+  FullShoppingCartDTO addProduct(UUID idShoppingCart, UUID idProduct, int nProducts);
 
   FullShoppingCartDTO addProduct(FullProductDTO fullProductDTO,
       FullShoppingCartDTO fullShoppingCartDTO,
       int quantity);
 
-  FullShoppingCartDTO deleteProduct(Long idShoppingCart, UUID idProduct);
+  FullShoppingCartDTO deleteProduct(UUID idShoppingCart, UUID idProduct);
 }

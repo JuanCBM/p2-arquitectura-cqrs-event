@@ -1,4 +1,4 @@
-package es.urjc.code.pr2.controller.dto;
+package es.urjc.code.pr2.domain.event;
 
 import java.util.UUID;
 import lombok.AllArgsConstructor;
@@ -8,9 +8,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ShoppingCartExpenditureResponseDTO {
+public class ShoppingCartDeleted {
 
   private UUID cartId;
-  private Double expenditure;
 
 }

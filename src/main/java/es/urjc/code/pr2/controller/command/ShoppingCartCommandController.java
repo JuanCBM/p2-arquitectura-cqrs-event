@@ -33,7 +33,7 @@ public class ShoppingCartCommandController {
 
   @PostMapping("/{idShoppingCart}/product/{idProduct}/quantity/{quantity}")
   public ShoppingCartResponseDTO addProductToShoppingCart(
-      @PathVariable Long idShoppingCart,
+      @PathVariable UUID idShoppingCart,
       @PathVariable UUID idProduct,
       @PathVariable int quantity) {
 
@@ -43,7 +43,7 @@ public class ShoppingCartCommandController {
 
   @DeleteMapping("/{idShoppingCart}/product/{idProduct}")
   public ShoppingCartResponseDTO deleteProductInShoppingCart(
-      @PathVariable Long idShoppingCart,
+      @PathVariable UUID idShoppingCart,
       @PathVariable UUID idProduct) {
     return mapper.map(shoppingService.deleteProduct(idShoppingCart, idProduct),
         ShoppingCartResponseDTO.class);
@@ -62,7 +62,7 @@ public class ShoppingCartCommandController {
 
   @PatchMapping("/{id}")
   public ShoppingCartResponseDTO updateShoppingCart(
-      @PathVariable Long id,
+      @PathVariable UUID id,
       @Validated @RequestBody ShoppingCartRequestDTO shoppingCartRequestDTO) {
     FullShoppingCartDTO fullShoppingCartDTO = shoppingService.updateShoppingCart(id,
         mapper.map(shoppingCartRequestDTO, ShoppingCartDTO.class));
@@ -71,7 +71,7 @@ public class ShoppingCartCommandController {
   }
 
   @DeleteMapping("/{id}")
-  public ShoppingCartResponseDTO deleteShoppingCart(@PathVariable Long id) {
+  public ShoppingCartResponseDTO deleteShoppingCart(@PathVariable UUID id) {
     return mapper.map(shoppingService.deleteShoppingCart(id), ShoppingCartResponseDTO.class);
   }
 }

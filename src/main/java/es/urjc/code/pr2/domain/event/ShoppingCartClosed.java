@@ -1,5 +1,6 @@
 package es.urjc.code.pr2.domain.event;
 
+import java.util.UUID;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -7,10 +8,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ShoppingCartClosed {
 
-  private Long cartId;
+  private UUID cartId;
   private Double expenditure;
 
-  public ShoppingCartClosed(Long cartId, Double expenditure) {
+  public ShoppingCartClosed(UUID cartId, Double expenditure) {
     this.cartId = cartId;
     this.expenditure = expenditure;
   }

@@ -2,10 +2,11 @@ package es.urjc.code.pr2.controller.dto;
 
 import es.urjc.code.pr2.domain.ShoppingCartStatus;
 import java.util.List;
+import java.util.UUID;
 
 public class ShoppingCartResponseDTO {
 
-  private Long id;
+  private UUID id;
   private ShoppingCartStatus status;
   private List<ShoppingCartItemResponseDTO> items;
   private double price;
@@ -14,11 +15,11 @@ public class ShoppingCartResponseDTO {
     super();
   }
 
-  public Long getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 

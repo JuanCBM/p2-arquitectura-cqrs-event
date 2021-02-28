@@ -2,6 +2,7 @@ package es.urjc.code.pr2.controller.query;
 
 import es.urjc.code.pr2.controller.dto.ShoppingCartResponseDTO;
 import es.urjc.code.pr2.domain.service.query.ShoppingCartQueryService;
+import java.util.UUID;
 import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +21,7 @@ public class ShoppingCartQueryController {
   }
 
   @GetMapping("/{id}")
-  public ShoppingCartResponseDTO getShoppingCart(@PathVariable Long id) {
+  public ShoppingCartResponseDTO getShoppingCart(@PathVariable UUID id) {
     return mapper.map(shoppingCartQueryService.getShoppingCart(id), ShoppingCartResponseDTO.class);
   }
 

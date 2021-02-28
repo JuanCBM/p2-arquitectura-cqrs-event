@@ -13,8 +13,8 @@ import org.modelmapper.ModelMapper;
 public class ProductCommandServiceImpl implements ProductCommandService {
 
   private final ProductRepository repository;
-  ModelMapper mapper = new ModelMapper();
   private final ProductProcess productProcess;
+  ModelMapper mapper = new ModelMapper();
 
   public ProductCommandServiceImpl(ProductRepository repository,
       ProductProcess productProcess) {

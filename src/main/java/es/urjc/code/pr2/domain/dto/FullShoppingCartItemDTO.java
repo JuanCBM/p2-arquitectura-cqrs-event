@@ -1,10 +1,11 @@
 package es.urjc.code.pr2.domain.dto;
 
 import es.urjc.code.pr2.domain.Product;
+import java.util.UUID;
 
 public class FullShoppingCartItemDTO {
 
-  private Long id;
+  private UUID id;
   private Product product;
   private int quantity;
   private double totalPrice;
@@ -13,11 +14,11 @@ public class FullShoppingCartItemDTO {
     super();
   }
 
-  public Long getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 

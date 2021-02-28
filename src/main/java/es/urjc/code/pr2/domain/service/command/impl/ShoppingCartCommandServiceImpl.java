@@ -8,6 +8,8 @@ import es.urjc.code.pr2.domain.dto.FullProductDTO;
 import es.urjc.code.pr2.domain.dto.FullShoppingCartDTO;
 import es.urjc.code.pr2.domain.dto.ShoppingCartDTO;
 import es.urjc.code.pr2.domain.event.ShoppingCartClosed;
+import es.urjc.code.pr2.domain.event.ShoppingCartDeleted;
+import es.urjc.code.pr2.domain.event.ShoppingCartSaved;
 import es.urjc.code.pr2.domain.repository.ProductRepository;
 import es.urjc.code.pr2.domain.repository.ShoppingCartRepository;
 import es.urjc.code.pr2.domain.service.command.ShoppingCartCommandService;
@@ -35,21 +37,23 @@ public class ShoppingCartCommandServiceImpl implements ShoppingCartCommandServic
   }
 
   private FullShoppingCartDTO saveShoppingCart(FullShoppingCartDTO fullShoppingCartDTO) {
-    FullShoppingCartDTO saveFullShoppingCartDTO = shoppingCartRepository.save(fullShoppingCartDTO);
+    ShoppingCartSaved shoppingCartSaved = mapper.map(fullShoppingCartDTO, ShoppingCartSaved.class);
+    shoppingCartProcess.save(shoppingCartSaved);
+    //FullShoppingCartDTO saveFullShoppingCartDTO = shoppingCartRepository.save(fullShoppingCartDTO);
 
-    return (saveFullShoppingCartDTO != null) ? saveFullShoppingCartDTO : fullShoppingCartDTO;
+    return fullShoppingCartDTO;
   }
 
   @Override
   public FullShoppingCartDTO createShoppingCart() {
-    ShoppingCart shoppingCart = new ShoppingCart();
-    FullShoppingCartDTO fullShoppingCartDTO = mapper.map(shoppingCart, FullShoppingCartDTO.class);
-
+    FullShoppingCartDTO fullShoppingCartDTO = mapper
+        .map(new ShoppingCart(), FullShoppingCartDTO.class);
+    fullShoppingCartDTO.setId(UUID.randomUUID());
     return saveShoppingCart(fullShoppingCartDTO);
   }
 
   @Override
-  public FullShoppingCartDTO updateShoppingCart(Long id, ShoppingCartDTO shoppingCartDTO) {
+  public FullShoppingCartDTO updateShoppingCart(UUID id, ShoppingCartDTO shoppingCartDTO) {
     FullShoppingCartDTO fullShoppingCartDTO = shoppingCartRepository.findById(id);
 
     ShoppingCart shoppingCart = mapper.map(fullShoppingCartDTO, ShoppingCart.class);
@@ -70,15 +74,16 @@ public class ShoppingCartCommandServiceImpl implements ShoppingCartCommandServic
   }
 
   @Override
-  public FullShoppingCartDTO deleteShoppingCart(Long id) {
+  public FullShoppingCartDTO deleteShoppingCart(UUID id) {
+    ShoppingCartDeleted shoppingCartDeleted = new ShoppingCartDeleted(id);
     FullShoppingCartDTO fullShoppingCartDTO = shoppingCartRepository.findById(id);
-    shoppingCartRepository.deleteById(id);
+    shoppingCartProcess.delete(shoppingCartDeleted);
 
     return fullShoppingCartDTO;
   }
 
   @Override
-  public FullShoppingCartDTO addProduct(Long idShoppingCart, UUID idProduct, int quantity) {
+  public FullShoppingCartDTO addProduct(UUID idShoppingCart, UUID idProduct, int quantity) {
     FullProductDTO fullProductDTO = productRepository.findById(idProduct);
     FullShoppingCartDTO fullShoppingCartDTO = shoppingCartRepository.findById(idShoppingCart);
 
@@ -94,6 +99,7 @@ public class ShoppingCartCommandServiceImpl implements ShoppingCartCommandServic
     ShoppingCartItem shoppingCartItem = new ShoppingCartItem(
         mapper.map(fullProductDTO, Product.class),
         quantity);
+    shoppingCartItem.setId(UUID.randomUUID());
     shoppingCart.addItem(shoppingCartItem);
 
     FullShoppingCartDTO newFullProductDTO = mapper.map(shoppingCart, FullShoppingCartDTO.class);
@@ -102,7 +108,7 @@ public class ShoppingCartCommandServiceImpl implements ShoppingCartCommandServic
   }
 
   @Override
-  public FullShoppingCartDTO deleteProduct(Long idShoppingCart, UUID idProduct) {
+  public FullShoppingCartDTO deleteProduct(UUID idShoppingCart, UUID idProduct) {
     FullShoppingCartDTO fullShoppingCartDTO = shoppingCartRepository.findById(idShoppingCart);
 
     ShoppingCart shoppingCart = mapper.map(fullShoppingCartDTO, ShoppingCart.class);

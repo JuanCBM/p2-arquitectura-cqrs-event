@@ -27,17 +27,14 @@ import org.modelmapper.ModelMapper;
 @TestMethodOrder(OrderAnnotation.class)
 public class ShoppingCartCommandService {
 
+  private static FullShoppingCartDTO createdShoppingCart;
+  private final ModelMapper mapper = new ModelMapper();
   private ProductRepository productRepository;
   private ProductCommandServiceImpl productService;
   private ShoppingCartProcess shoppingCartProcess;
   private ProductProcess productProcess;
-
   private ShoppingCartRepository shoppingCartRepository;
   private ShoppingCartCommandServiceImpl shoppingCartService;
-
-  private final ModelMapper mapper = new ModelMapper();
-
-  private static FullShoppingCartDTO createdShoppingCart;
 
   @BeforeEach
   void setUp() {

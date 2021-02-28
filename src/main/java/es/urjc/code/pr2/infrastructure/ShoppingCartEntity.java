@@ -2,10 +2,9 @@ package es.urjc.code.pr2.infrastructure;
 
 import es.urjc.code.pr2.domain.ShoppingCartStatus;
 import java.util.List;
+import java.util.UUID;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -13,8 +12,8 @@ import javax.persistence.OneToMany;
 public class ShoppingCartEntity {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+  // @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private UUID id;
   private ShoppingCartStatus status;
 
   @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -24,17 +23,17 @@ public class ShoppingCartEntity {
     super();
   }
 
-  public ShoppingCartEntity(Long id, List<ShoppingCartItemEntity> items) {
+  public ShoppingCartEntity(UUID id, List<ShoppingCartItemEntity> items) {
     super();
     this.id = id;
     this.items = items;
   }
 
-  public Long getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 

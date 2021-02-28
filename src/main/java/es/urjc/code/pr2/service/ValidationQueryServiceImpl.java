@@ -13,5 +13,5 @@ public class ValidationQueryServiceImpl implements ValidationQueryService {
 
     return rnd.nextBoolean();
   }
-  
+
 }

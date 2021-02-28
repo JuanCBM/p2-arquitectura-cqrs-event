@@ -19,13 +19,11 @@ import org.modelmapper.ModelMapper;
 @TestMethodOrder(OrderAnnotation.class)
 public class ProductCommandService {
 
+  private static FullProductDTO createdProduct;
+  private final ModelMapper mapper = new ModelMapper();
   private ProductRepository productRepository;
   private ProductCommandServiceImpl productService;
   private ProductProcess productProcess;
-
-  private final ModelMapper mapper = new ModelMapper();
-
-  private static FullProductDTO createdProduct;
 
   @BeforeEach
   void setUp() {
