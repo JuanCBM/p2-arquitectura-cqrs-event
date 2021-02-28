@@ -1,8 +1,10 @@
 package es.urjc.code.pr2.domain.dto;
 
+import java.util.UUID;
+
 public class FullProductDTO {
 
-  private Long id;
+  private UUID id;
   private String name;
   private String description;
   private double price;
@@ -11,11 +13,17 @@ public class FullProductDTO {
     super();
   }
 
-  public Long getId() {
+  public FullProductDTO(String name, String description, double price) {
+    this.name = name;
+    this.description = description;
+    this.price = price;
+  }
+
+  public UUID getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 

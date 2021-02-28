@@ -10,11 +10,11 @@ import es.urjc.code.pr2.domain.service.query.ShoppingCartQueryService;
 import es.urjc.code.pr2.domain.service.query.impl.ProductQueryServiceImpl;
 import es.urjc.code.pr2.domain.service.query.impl.ShoppingCartExpenditureQueryServiceImpl;
 import es.urjc.code.pr2.domain.service.query.impl.ShoppingCartQueryServiceImpl;
+import es.urjc.code.pr2.infrastructure.application.source.ShoppingCartProcess;
 import es.urjc.code.pr2.infrastructure.repository.impl.SpringDataJPAProductRepositoryAdapter;
 import es.urjc.code.pr2.infrastructure.repository.impl.SpringDataJPAShoppingCartExpenditureRepositoryAdapter;
 import es.urjc.code.pr2.infrastructure.repository.impl.SpringDataJPAShoppingCartRepositoryAdapter;
 import es.urjc.code.pr2.service.ValidationQueryServiceImpl;
-import es.urjc.code.pr2.service.source.ShoppingCartProcess;
 import org.springframework.context.annotation.Bean;
 
 @org.springframework.context.annotation.Configuration

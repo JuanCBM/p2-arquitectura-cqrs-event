@@ -1,16 +1,16 @@
-package es.urjc.code.pr2.service.sink;
+package es.urjc.code.pr2.infrastructure.sink;
 
+import es.urjc.code.pr2.infrastructure.application.event.ShoppingCartClosed;
 import es.urjc.code.pr2.infrastructure.repository.impl.SpringDataJPAShoppingCartExpenditureRepositoryAdapter;
-import es.urjc.code.pr2.service.event.ShoppingCartClosed;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ReadModelUpdater {
+public class ShoppingCartExpenditureReadModelUpdater {
 
   private final SpringDataJPAShoppingCartExpenditureRepositoryAdapter springDataJPAShoppingCartExpenditureRepositoryAdapter;
 
-  ReadModelUpdater(
+  ShoppingCartExpenditureReadModelUpdater(
       SpringDataJPAShoppingCartExpenditureRepositoryAdapter springDataJPAShoppingCartExpenditureRepositoryAdapter) {
     this.springDataJPAShoppingCartExpenditureRepositoryAdapter = springDataJPAShoppingCartExpenditureRepositoryAdapter;
   }

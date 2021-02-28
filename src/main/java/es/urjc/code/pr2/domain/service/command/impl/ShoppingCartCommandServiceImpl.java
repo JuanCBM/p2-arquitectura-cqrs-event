@@ -11,7 +11,7 @@ import es.urjc.code.pr2.domain.repository.ProductRepository;
 import es.urjc.code.pr2.domain.repository.ShoppingCartRepository;
 import es.urjc.code.pr2.domain.service.command.ShoppingCartCommandService;
 import es.urjc.code.pr2.domain.service.query.ValidationQueryService;
-import es.urjc.code.pr2.service.source.ShoppingCartProcess;
+import es.urjc.code.pr2.infrastructure.application.source.ShoppingCartProcess;
 import org.modelmapper.ModelMapper;
 
 public class ShoppingCartCommandServiceImpl implements ShoppingCartCommandService {
@@ -86,7 +86,7 @@ public class ShoppingCartCommandServiceImpl implements ShoppingCartCommandServic
       FullShoppingCartDTO fullShoppingCartDTO,
       int quantity) {
     ShoppingCart shoppingCart = mapper.map(fullShoppingCartDTO, ShoppingCart.class);
-    shoppingCart.removeItem(fullProductDTO.getId());
+    //shoppingCart.removeItem(fullProductDTO.getId());
 
     ShoppingCartItem shoppingCartItem = new ShoppingCartItem(
         mapper.map(fullProductDTO, Product.class),

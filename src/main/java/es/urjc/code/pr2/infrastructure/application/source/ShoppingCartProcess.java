@@ -1,8 +1,8 @@
-package es.urjc.code.pr2.service.source;
+package es.urjc.code.pr2.infrastructure.application.source;
 
 import es.urjc.code.pr2.domain.dto.FullShoppingCartDTO;
 import es.urjc.code.pr2.domain.repository.ShoppingCartRepository;
-import es.urjc.code.pr2.service.event.ShoppingCartClosed;
+import es.urjc.code.pr2.infrastructure.application.event.ShoppingCartClosed;
 import javax.transaction.Transactional;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;

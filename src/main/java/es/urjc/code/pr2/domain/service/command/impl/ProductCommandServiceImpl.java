@@ -18,6 +18,7 @@ public class ProductCommandServiceImpl implements ProductCommandService {
   @Override
   public FullProductDTO createProduct(ProductDTO productDTO) {
     FullProductDTO fullProductDTO = mapper.map(productDTO, FullProductDTO.class);
+
     FullProductDTO saveFullProductDTO = repository.save(fullProductDTO);
 
     return (saveFullProductDTO != null) ? saveFullProductDTO : fullProductDTO;

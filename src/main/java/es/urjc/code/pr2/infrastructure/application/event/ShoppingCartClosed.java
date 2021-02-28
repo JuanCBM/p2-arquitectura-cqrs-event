@@ -1,4 +1,4 @@
-package es.urjc.code.pr2.service.event;
+package es.urjc.code.pr2.infrastructure.application.event;
 
 import java.time.Instant;
 import lombok.AllArgsConstructor;
