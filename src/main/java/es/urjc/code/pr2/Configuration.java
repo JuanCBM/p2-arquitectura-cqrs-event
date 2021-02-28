@@ -10,6 +10,7 @@ import es.urjc.code.pr2.domain.service.query.ShoppingCartQueryService;
 import es.urjc.code.pr2.domain.service.query.impl.ProductQueryServiceImpl;
 import es.urjc.code.pr2.domain.service.query.impl.ShoppingCartExpenditureQueryServiceImpl;
 import es.urjc.code.pr2.domain.service.query.impl.ShoppingCartQueryServiceImpl;
+import es.urjc.code.pr2.infrastructure.application.source.ProductProcess;
 import es.urjc.code.pr2.infrastructure.application.source.ShoppingCartProcess;
 import es.urjc.code.pr2.infrastructure.repository.impl.SpringDataJPAProductRepositoryAdapter;
 import es.urjc.code.pr2.infrastructure.repository.impl.SpringDataJPAShoppingCartExpenditureRepositoryAdapter;
@@ -46,8 +47,9 @@ public class Configuration {
 
   @Bean
   public ProductCommandService productService(
-      SpringDataJPAProductRepositoryAdapter repositoryAdapter) {
-    return new ProductCommandServiceImpl(repositoryAdapter);
+      SpringDataJPAProductRepositoryAdapter repositoryAdapter,
+      ProductProcess productProcess) {
+    return new ProductCommandServiceImpl(repositoryAdapter, productProcess);
   }
 
   @Bean

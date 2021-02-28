@@ -32,7 +32,7 @@ public class ProductCommandService {
     productRepository = mock(ProductRepository.class);
     productProcess = mock(ProductProcess.class);
 
-    productService = new ProductCommandServiceImpl(productRepository);
+    productService = new ProductCommandServiceImpl(productRepository, productProcess);
   }
 
   @Test

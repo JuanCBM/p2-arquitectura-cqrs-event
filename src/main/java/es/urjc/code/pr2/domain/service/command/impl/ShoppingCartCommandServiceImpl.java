@@ -11,6 +11,7 @@ import es.urjc.code.pr2.domain.repository.ProductRepository;
 import es.urjc.code.pr2.domain.repository.ShoppingCartRepository;
 import es.urjc.code.pr2.domain.service.command.ShoppingCartCommandService;
 import es.urjc.code.pr2.domain.service.query.ValidationQueryService;
+import es.urjc.code.pr2.infrastructure.application.event.ShoppingCartClosed;
 import es.urjc.code.pr2.infrastructure.application.source.ShoppingCartProcess;
 import org.modelmapper.ModelMapper;
 
@@ -57,9 +58,10 @@ public class ShoppingCartCommandServiceImpl implements ShoppingCartCommandServic
         updateShoppingCart.getStatus() == ShoppingCartStatus.COMPLETED) {
       shoppingCart.setValidationService(validationQueryService);
       shoppingCart.validate();
-    }
 
-    shoppingCartProcess.close(id, shoppingCart.getPrice());
+      ShoppingCartClosed event = new ShoppingCartClosed(id, shoppingCart.getPrice());
+      shoppingCartProcess.close(event);
+    }
 
     FullShoppingCartDTO newShoppingCartDTO = mapper.map(shoppingCart, FullShoppingCartDTO.class);
 
