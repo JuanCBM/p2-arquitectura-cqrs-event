@@ -16,7 +16,7 @@ public class ProductProcess {
   }
 
   @Transactional
-  public void create(ProductCreated productCreated) {
+  public void save(ProductCreated productCreated) {
     applicationEventPublisher.publishEvent(productCreated);
   }
 
