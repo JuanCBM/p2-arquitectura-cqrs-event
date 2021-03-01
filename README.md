@@ -21,7 +21,7 @@ Proyecto para aplicar CQRS & Event Sourcing
 
 * Github: [@mahuerta](https://github.com/mahuerta)
 
-# Sobre la aplicación:
+# Sobre la aplicación
 
 Hemos utilizado eventos dentro de la aplicación Spring.
 
