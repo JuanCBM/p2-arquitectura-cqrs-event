@@ -25,8 +25,8 @@ Proyecto para aplicar CQRS & Event Sourcing
 
 Hemos utilizado eventos dentro de la aplicación Spring.
 
-Adjuntamos un proyecto postman ``p2.postman_collection.json`` situado en la raíz del proyecto para
-realizar las peticiones necesarias para probar la aplicación.
+Adjuntamos un proyecto postman ``p2-arquitectura.postman_collection.json`` situado en la raíz del
+proyecto para realizar las peticiones necesarias para probar la aplicación.
 
 # Notas teóricas
 

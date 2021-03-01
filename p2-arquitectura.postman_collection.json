@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "972a3c92-90e0-43e8-bc87-4f47172a17ff",
+		"name": "p2-arquitectura",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "/api/products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT}}/api/products",
+							"host": [
+								"{{ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"BICICLETA DE MONTAÑA ROCKRIDER ST 100 ALUMINIO 27,5\",\n    \"description\": \"Esta BTT de 27,5 ha sido concebida para tus primeras travesías en BTT de hasta 1 h 30 min, con tiempo seco Talla XS en 26\",\n    \"price\": 239.99\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ENDPOINT}}/api/products",
+							"host": [
+								"{{ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/products/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT}}/api/products/793b6c06-33ff-4618-8dd3-0dde5c931efb",
+							"host": [
+								"{{ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"793b6c06-33ff-4618-8dd3-0dde5c931efb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/products/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT}}/api/products/793b6c06-33ff-4618-8dd3-0dde5c931efb",
+							"host": [
+								"{{ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"793b6c06-33ff-4618-8dd3-0dde5c931efb"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ShoppingCart",
+			"item": [
+				{
+					"name": "/api/shoppingcarts",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT}}/api/shoppingcarts",
+							"host": [
+								"{{ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"shoppingcarts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/shoppingcarts/:id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"COMPLETED\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ENDPOINT}}/api/shoppingcarts/e758c08b-55b2-429a-9828-2e7e5bfce58a",
+							"host": [
+								"{{ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"shoppingcarts",
+								"e758c08b-55b2-429a-9828-2e7e5bfce58a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/shoppingcarts/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT}}/api/shoppingcarts/e758c08b-55b2-429a-9828-2e7e5bfce58a",
+							"host": [
+								"{{ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"shoppingcarts",
+								"e758c08b-55b2-429a-9828-2e7e5bfce58a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/shoppingcarts/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT}}/api/shoppingcarts/e758c08b-55b2-429a-9828-2e7e5bfce58a",
+							"host": [
+								"{{ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"shoppingcarts",
+								"e758c08b-55b2-429a-9828-2e7e5bfce58a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/shoppingcarts/:cart_id/product/:prod_id/quantity/:prod_quantity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT}}/api/shoppingcarts/e758c08b-55b2-429a-9828-2e7e5bfce58a/product/571ba2f1-42e8-493f-8f63-d3acdbe2a52f/quantity/2",
+							"host": [
+								"{{ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"shoppingcarts",
+								"e758c08b-55b2-429a-9828-2e7e5bfce58a",
+								"product",
+								"571ba2f1-42e8-493f-8f63-d3acdbe2a52f",
+								"quantity",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/shoppingcarts/SHOPPINGCART_ID/product/PRODUCT_ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT}}/api/shoppingcarts/e758c08b-55b2-429a-9828-2e7e5bfce58a/product/571ba2f1-42e8-493f-8f63-d3acdbe2a52f",
+							"host": [
+								"{{ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"shoppingcarts",
+								"e758c08b-55b2-429a-9828-2e7e5bfce58a",
+								"product",
+								"571ba2f1-42e8-493f-8f63-d3acdbe2a52f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ShoppingCartExpenditure",
+			"item": [
+				{
+					"name": "/api/cartexpenditure",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT}}/api/cartexpenditure",
+							"host": [
+								"{{ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"cartexpenditure"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ENDPOINT",
+			"value": "http://localhost:8080"
+		}
+	]
+}
