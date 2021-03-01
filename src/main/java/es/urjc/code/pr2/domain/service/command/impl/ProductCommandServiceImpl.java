@@ -26,13 +26,9 @@ public class ProductCommandServiceImpl implements ProductCommandService {
   public FullProductDTO createProduct(ProductDTO productDTO) {
     ProductCreated productCreated = mapper.map(productDTO, ProductCreated.class);
     productCreated.setId(UUID.randomUUID());
-
     productProcess.create(productCreated);
 
-    //FullProductDTO saveFullProductDTO = repository.save(fullProductDTO);
-
     return mapper.map(productCreated, FullProductDTO.class);
-    // return (saveFullProductDTO != null) ? saveFullProductDTO : fullProductDTO;
   }
 
   @Override

@@ -20,6 +20,7 @@ public class ProductProcess {
     applicationEventPublisher.publishEvent(productCreated);
   }
 
+  @Transactional
   public void delete(ProductDeleted productDeleted) {
     applicationEventPublisher.publishEvent(productDeleted);
   }

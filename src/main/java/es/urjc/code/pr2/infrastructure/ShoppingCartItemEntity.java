@@ -9,7 +9,6 @@ import javax.persistence.OneToOne;
 public class ShoppingCartItemEntity {
 
   @Id
-  //@GeneratedValue(strategy = GenerationType.IDENTITY)
   private UUID id;
 
   @OneToOne

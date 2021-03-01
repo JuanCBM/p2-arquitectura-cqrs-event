@@ -39,7 +39,6 @@ public class ShoppingCartCommandServiceImpl implements ShoppingCartCommandServic
   private FullShoppingCartDTO saveShoppingCart(FullShoppingCartDTO fullShoppingCartDTO) {
     ShoppingCartSaved shoppingCartSaved = mapper.map(fullShoppingCartDTO, ShoppingCartSaved.class);
     shoppingCartProcess.save(shoppingCartSaved);
-    //FullShoppingCartDTO saveFullShoppingCartDTO = shoppingCartRepository.save(fullShoppingCartDTO);
 
     return fullShoppingCartDTO;
   }

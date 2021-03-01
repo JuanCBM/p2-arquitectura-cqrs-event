@@ -12,7 +12,6 @@ import javax.persistence.OneToMany;
 public class ShoppingCartEntity {
 
   @Id
-  // @GeneratedValue(strategy = GenerationType.IDENTITY)
   private UUID id;
   private ShoppingCartStatus status;
 

@@ -21,16 +21,14 @@ public class ShoppingCartProcess {
     applicationEventPublisher.publishEvent(event);
   }
 
+  @Transactional
   public void save(ShoppingCartSaved event) {
     applicationEventPublisher.publishEvent(event);
   }
 
+  @Transactional
   public void delete(ShoppingCartDeleted event) {
     applicationEventPublisher.publishEvent(event);
   }
-  /*public void close(ShoppingCartClosed event) {
-    applicationEventPublisher.publishEvent(event);
-  }*/
-
 
 }

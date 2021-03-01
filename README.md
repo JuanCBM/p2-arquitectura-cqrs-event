@@ -9,6 +9,8 @@
   </a>
 </p>
 
+Proyecto para aplicar CQRS & Event Sourcing
+
 ## Authors
 
 👤 **JuanCBM**: Juan Carlos Blázquez Muñoz
@@ -21,16 +23,20 @@
 
 # Sobre la aplicación:
 
-### Parte 1:
+Hemos utilizado eventos dentro de la aplicación Spring.
 
-Hemos utilizado eventos dentro de la aplicación Spring. Además de guardar el estado del carrito, se
-debe crear un evento ShoppingCartClosed (Los eventos se ponen en pasado). Este evento debe
-publicarlo en un publiser ShoppingCartProcess y debe leerlo un listener ReadModelUpdater. Ambos se
-encontrarán en la capa de servicios puesto que son dependientes de la tecnología. En este caso del
-framework de Spring.
+Adjuntamos un proyecto postman ``p2.postman_collection.json`` situado en la raíz del proyecto para
+realizar las peticiones necesarias para probar la aplicación.
 
-Como el publisher es dependiente de la tecnología (ApplicationEventPublisher de spring), deberemos
-inyectarlo como hacemos con el servicio externo de validación en un servicio a parte
+# Notas teóricas
+
+Además de guardar el estado del carrito, se debe crear un evento ShoppingCartClosed (Los eventos se
+ponen en pasado). Este evento debe publicarlo en un publisher ShoppingCartProcess y debe leerlo un
+listener ReadModelUpdater. Ambos no se pueden localizar en la capa de dominio, puesto que son
+dependientes de la tecnología. En este caso del framework de Spring.
+
+Como hemos comentado son dependientes de la tecnología (ApplicationEventPublisher de spring),
+deberemos inyectarlo como hacemos con el servicio externo de validación en un servicio a parte
 
 EL procesador actualizará la vista (materialized view) de carritos completados con sus id-precio
-total
+total.

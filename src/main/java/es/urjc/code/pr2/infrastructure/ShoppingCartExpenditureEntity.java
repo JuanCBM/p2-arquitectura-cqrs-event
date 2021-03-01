@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 public class ShoppingCartExpenditureEntity {
 
   @Id
-  //@GeneratedValue(strategy = GenerationType.IDENTITY)
   private UUID cartId;
   private Double expenditure;
 
