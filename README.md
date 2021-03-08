@@ -41,6 +41,8 @@ deberemos inyectarlo como hacemos con el servicio externo de validación en un s
 EL procesador actualizará la vista (materialized view) de carritos completados con sus id-precio
 total.
 
+Fuentes: https://github.com/ddd-by-examples/all-things-cqrs 
+
 # Corrección
 
 Los eventos deben mandar sólo el cambio, no el agregado completo.
